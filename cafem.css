@@ -47,12 +47,11 @@ header p {
     display: inline-block;
 }
 
-/* 그리드 배치 (링크 페이지처럼 깔끔한 열 정렬) */
+/* 그리드 배치 (한 줄에 4개씩 깔끔한 열 정렬) */
 .menu-item {
     display: grid;
-    /* 기본적으로 한 줄에 똑같은 비율로 4개의 열(Column)을 생성합니다 */
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px; /* 카드 사이의 간격을 4열 배치에 맞게 살짝 조절 */
+    gap: 25px; 
 }
 
 /* 개별 카드 감싸는 박스 */
@@ -88,30 +87,39 @@ header p {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* 설명 영역이 짧아도 가격 위치를 고정하기 위함 */
+    flex-grow: 1; 
 }
 
+/* ★ Flexbox 반영: 메뉴명(왼쪽 끝)과 가격(오른쪽 끝) 정렬 ★ */
 .menu-title {
     font-size: 1.25rem;
     color: #222;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    
+    display: flex;                  /* Flexbox 레이아웃 적용 */
+    flex-direction: row;            /* 가로 방향 정렬 */
+    justify-content: space-between; /* 양 끝 정렬 (이름은 왼쪽, 가격은 오른쪽) */
+    align-items: center;            /* 글자 세로 정중앙 맞춤 */
+}
+
+/* 왼쪽 끝 메뉴명 스타일 */
+.title-txt {
+    font-weight: 700;
+}
+
+/* 오른쪽 끝 가격 스타일 */
+.menu-price {
+    font-size: 1.1rem;
+    color: #e90606; 
+    font-weight: 700;
+    /* 가격이 제목 라인으로 올라왔으므로, 기존 하단 배치용 속성들은 깔끔하게 지웠습니다 */
 }
 
 .menu-desc {
     font-size: 0.9rem;
     color: #666;
     line-height: 1.5;
-    margin-bottom: 20px;
     min-height: 54px; /* 글자 수 달라도 카드 높이 통일 */
-}
-
-.menu-price {
-    font-size: 1.1rem;
-    color: #e90606; /* 태블릿 메뉴판 느낌의 브라운 포인트 컬러 */
-    font-weight: 700;
-    margin-top: auto; /* 박스 최하단에 배치 */
-    border-top: 1px solid #f5f3ee;
-    padding-top: 12px;
 }
 
 /* 푸터 */
@@ -140,4 +148,4 @@ footer {
 /* git init */
 /* git add . */
 /* git commit -m "저장할것 이름" */
-/* git push origin main */ 
+/* git push origin main */
